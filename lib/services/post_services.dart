@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:frontend_get_api/model/postmodel.dart';
+import 'package:frontend_get_api/model/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class PostService {
@@ -18,6 +20,31 @@ class PostService {
         );
       }).toList();
       return posts;
+    }
+    return [];
+  }
+}
+
+class UserService {
+  Future<List<UserModel>> getAllUsers() async {
+    const urlUsers = 'https://jsonplaceholder.typicode.com/users/';
+    final uriUsers = Uri.parse(urlUsers);
+    final response = await http.get(uriUsers);
+    if (response.statusCode == 200) {
+      final jsonUsers = jsonDecode(response.body) as List;
+      final users = jsonUsers.map((e) {
+        return UserModel(
+          id: e["id"],
+          name: e["name"],
+          username: e["username"],
+          email: e["email"],
+          address: Address.fromMap(e["address"]),
+          phone: e["phone"],
+          website: e["website"],
+          company: Company.fromMap(e["company"]),
+        );
+      }).toList();
+      return users;
     }
     return [];
   }

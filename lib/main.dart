@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_get_api/model/user_model.dart';
 import 'package:frontend_get_api/provider/post_provider.dart';
 import 'package:frontend_get_api/screens/homepage.dart';
 import 'package:provider/provider.dart';
@@ -12,9 +13,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return MultiProvider(child: const MaterialApp(home: HomePage()),
+      providers: [
+        ChangeNotifierProvider<UsersProvider>(
+          create: (_) => UsersProvider(),
+        ),
+        ChangeNotifierProvider<PostProvider>(
+          create: (_) => PostProvider(),
+        ),
+      ],
+    );
+    /* return  ChangeNotifierProvider(
       create: (context) => PostProvider(),
       child: const MaterialApp(home: HomePage()),
-    );
+    );  */
+    /* ChangeNotifierProvider(
+      create: (context) => PostProvider(),
+      child: const MaterialApp(home: HomePage()),
+    ); */
   }
 }
+/* create: (context) => PostProvider(),
+      child: const MaterialApp(
+        home: HomePage(),
+      ), */
+
+      /* MultiProvider(
+      providers: [
+        ChangeNotifierProvider<PostProvider>(
+          create: (_) => PostProvider(),
+        ),
+        ChangeNotifierProvider<UsersProvider>(
+          create: (_) => UsersProvider().,
+        ),
+      ],
+    ); */
