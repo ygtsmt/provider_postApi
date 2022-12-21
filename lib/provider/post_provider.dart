@@ -11,9 +11,7 @@ class PostProvider extends ChangeNotifier {
   Future<void> getAllPosts() async {
     isLoading = true;
     notifyListeners();
-
     final response = await _service.getAllPosts();
-
     _posts = response;
     isLoading = false;
     notifyListeners();
