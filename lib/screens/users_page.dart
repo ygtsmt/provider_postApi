@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:frontend_get_api/model/user_model.dart';
-import 'package:frontend_get_api/provider/post_provider.dart';
+import 'package:frontend_get_api/services/post_services.dart';
+import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 
-class UsersPage extends StatelessWidget {
-  const UsersPage({Key? key}) : super(key: key);
 
+import '../provider/users_provider.dart';
+
+class UsersPage extends StatelessWidget {
+  var id;
+
+ 
+
+  
+   UsersPage( {Key? key,  required this.id}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback(
@@ -25,18 +32,21 @@ class UsersPage extends StatelessWidget {
             );
           }
           final users = value2.users;
-
           return ListView.builder(
-            itemCount: users.length,
+            itemCount: 1,
             // users.length <= posts.length ? users.length : posts.length,
             itemBuilder: (context, index) {
               final user = users[index];
 
-              return  Card(
+              return Card(
                 elevation: 20,
                 borderOnForeground: false,
-                child: ,
-                
+                child: Column(
+                  children: [
+                    Text('${id.toString()}'+' POST ID'),
+                    Text('${user.id.toString()}'+' USER ID')
+                  ],
+                ),
               );
             },
           );
