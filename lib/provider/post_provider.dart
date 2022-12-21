@@ -6,7 +6,7 @@ class PostProvider extends ChangeNotifier {
   final _service = PostService();
   bool isLoading = false;
   List<PostModel> _posts = [];
-  List<PostModel> get posts => _posts;
+  List<PostModel> get posts => _posts; //
 
   Future<void> getAllPosts() async {
     isLoading = true;
