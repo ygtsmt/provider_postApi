@@ -57,11 +57,12 @@ class HomePage extends StatelessWidget {
                               textAlign: TextAlign.center),
                           ElevatedButton(
                               onPressed: () {
-
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const UsersPage()));
+                                        builder: (context) => UsersPage(
+                                              post: post,
+                                            )));
                               },
                               child: Text('User'))
                         ],
@@ -75,6 +76,5 @@ class HomePage extends StatelessWidget {
         ));
   }
 }
-userschoose (){
-  
-}
+
+userschoose() {}
