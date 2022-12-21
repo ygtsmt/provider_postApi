@@ -36,6 +36,7 @@ class HomePage extends StatelessWidget {
                   ),
                   child: ListTile(
                     leading: CircleAvatar(child: Text(post.id.toString())),
+                    
                     title: Text(
                       post.body.toString(),
                       textAlign: TextAlign.center,
@@ -44,11 +45,11 @@ class HomePage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Name:${post.title}",
+                          "title:${post.title}",
                           textAlign: TextAlign.center,
                         ),
-                        Text("E-mail:${post.id}", textAlign: TextAlign.center),
-                        Text("ID:${post.body}", textAlign: TextAlign.center),
+                        Text("post id:${post.id}", textAlign: TextAlign.center),
+                      
                       ],
                     ),
                   ),

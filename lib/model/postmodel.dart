@@ -10,16 +10,3 @@ class PostModel {
       required this.title,
       required this.body});
 }
-
-/*   PostModel.fromMap({required Map json})
-      : userId = json['userId'],
-        id = json['id'],
-        title = json['title'],
-        body = json['body']; */
-
-  // other options
-  /*   PostModel(Map json)
-      : userId = json['userId'],
-        id = json['id'],
-        title = json['title'],
-        body = json['body']; */

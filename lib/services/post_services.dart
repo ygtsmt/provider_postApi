@@ -22,3 +22,15 @@ class PostService {
     return [];
   }
 }
+/*   PostModel.fromMap({required Map json})
+      : userId = json['userId'],
+        id = json['id'],
+        title = json['title'],
+        body = json['body']; */
+
+  // other options
+  /*   PostModel(Map json)
+      : userId = json['userId'],
+        id = json['id'],
+        title = json['title'],
+        body = json['body']; */
